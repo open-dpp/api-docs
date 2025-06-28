@@ -1,0 +1,1357 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/organizations/{orgaId}/product-data-model-drafts": {
+      "post": {
+        "operationId": "ProductDataModelDraftController_create",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateProductDataModelDraftDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "ProductDataModelDraft"
+        ]
+      },
+      "get": {
+        "operationId": "ProductDataModelDraftController_findAllOfOrganization",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "ProductDataModelDraft"
+        ]
+      }
+    },
+    "/organizations/{orgaId}/product-data-model-drafts/{draftId}": {
+      "get": {
+        "operationId": "ProductDataModelDraftController_get",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "draftId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "ProductDataModelDraft"
+        ]
+      },
+      "patch": {
+        "operationId": "ProductDataModelDraftController_modify",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "draftId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProductDataModelDraftDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "ProductDataModelDraft"
+        ]
+      }
+    },
+    "/organizations/{orgaId}/product-data-model-drafts/{draftId}/sections": {
+      "post": {
+        "operationId": "ProductDataModelDraftController_addSection",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "draftId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSectionDraftDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "ProductDataModelDraft"
+        ]
+      }
+    },
+    "/organizations/{orgaId}/product-data-model-drafts/{draftId}/publish": {
+      "post": {
+        "operationId": "ProductDataModelDraftController_publish",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "draftId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PublishDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "ProductDataModelDraft"
+        ]
+      }
+    },
+    "/organizations/{orgaId}/product-data-model-drafts/{draftId}/sections/{sectionId}/data-fields": {
+      "post": {
+        "operationId": "ProductDataModelDraftController_addDataFieldToSection",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sectionId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "draftId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDataFieldDraftDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "ProductDataModelDraft"
+        ]
+      }
+    },
+    "/organizations/{orgaId}/product-data-model-drafts/{draftId}/sections/{sectionId}": {
+      "delete": {
+        "operationId": "ProductDataModelDraftController_deleteSection",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sectionId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "draftId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "ProductDataModelDraft"
+        ]
+      },
+      "patch": {
+        "operationId": "ProductDataModelDraftController_modifySection",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sectionId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "draftId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateSectionDraftDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "ProductDataModelDraft"
+        ]
+      }
+    },
+    "/organizations/{orgaId}/product-data-model-drafts/{draftId}/sections/{sectionId}/data-fields/{fieldId}": {
+      "patch": {
+        "operationId": "ProductDataModelDraftController_modifyDataFieldOfSection",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sectionId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "draftId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fieldId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDataFieldDraftDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "ProductDataModelDraft"
+        ]
+      },
+      "delete": {
+        "operationId": "ProductDataModelDraftController_deleteDataFieldOfSection",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sectionId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "draftId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fieldId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "ProductDataModelDraft"
+        ]
+      }
+    },
+    "/keycloak-resources": {
+      "post": {
+        "operationId": "KeycloakResourcesController_create",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "KeycloakResources"
+        ]
+      }
+    },
+    "/product-data-models/{id}": {
+      "get": {
+        "operationId": "ProductDataModelController_get",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "ProductDataModel"
+        ]
+      }
+    },
+    "/product-data-models": {
+      "get": {
+        "operationId": "ProductDataModelController_getAll",
+        "parameters": [
+          {
+            "name": "organization",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "ProductDataModel"
+        ]
+      }
+    },
+    "/organizations": {
+      "post": {
+        "operationId": "OrganizationsController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOrganizationDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Organizations"
+        ]
+      },
+      "get": {
+        "operationId": "OrganizationsController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Organizations"
+        ]
+      }
+    },
+    "/organizations/{id}": {
+      "get": {
+        "operationId": "OrganizationsController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Organizations"
+        ]
+      }
+    },
+    "/organizations/{organizationId}/invite": {
+      "post": {
+        "operationId": "OrganizationsController_inviteUser",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Organizations"
+        ]
+      }
+    },
+    "/organizations/{id}/members": {
+      "get": {
+        "operationId": "OrganizationsController_getMembers",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Organizations"
+        ]
+      }
+    },
+    "/organizations/{orgaId}/models/{modelId}/items": {
+      "post": {
+        "operationId": "ItemsController_create",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "modelId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Items"
+        ]
+      },
+      "get": {
+        "operationId": "ItemsController_getAll",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "modelId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Items"
+        ]
+      }
+    },
+    "/organizations/{orgaId}/models/{modelId}/items/{id}": {
+      "get": {
+        "operationId": "ItemsController_get",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "modelId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Items"
+        ]
+      }
+    },
+    "/organizations/{orgaId}/models/{modelId}/items/{itemId}/data-values": {
+      "post": {
+        "operationId": "ItemsController_addDataValues",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "modelId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "itemId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Items"
+        ]
+      },
+      "patch": {
+        "operationId": "ItemsController_updateDataValues",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "modelId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "itemId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Items"
+        ]
+      }
+    },
+    "/organizations/{orgaId}/models": {
+      "post": {
+        "operationId": "ModelsController_create",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Models"
+        ]
+      },
+      "get": {
+        "operationId": "ModelsController_findAll",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Models"
+        ]
+      }
+    },
+    "/organizations/{orgaId}/models/{modelId}": {
+      "get": {
+        "operationId": "ModelsController_findOne",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "modelId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Models"
+        ]
+      },
+      "patch": {
+        "operationId": "ModelsController_update",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "modelId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Models"
+        ]
+      }
+    },
+    "/organizations/{orgaId}/models/{modelId}/product-data-models/{productDataModelId}": {
+      "post": {
+        "operationId": "ModelsController_assignProductDataModelToModel",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "modelId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "productDataModelId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Models"
+        ]
+      }
+    },
+    "/organizations/{orgaId}/models/{modelId}/data-values": {
+      "patch": {
+        "operationId": "ModelsController_updateDataValues",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "modelId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Models"
+        ]
+      },
+      "post": {
+        "operationId": "ModelsController_addDataValues",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "modelId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Models"
+        ]
+      }
+    },
+    "/unique-product-identifiers/{id}/view": {
+      "get": {
+        "operationId": "UniqueProductIdentifierController_buildView",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UniqueProductIdentifier"
+        ]
+      }
+    },
+    "/organizations/{orgaId}/unique-product-identifiers/{id}/reference": {
+      "get": {
+        "operationId": "UniqueProductIdentifierController_getReferencedProductPassport",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UniqueProductIdentifier"
+        ]
+      }
+    },
+    "/dpp-events": {
+      "post": {
+        "operationId": "TraceabilityEventsController_create",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "TraceabilityEvents"
+        ]
+      }
+    },
+    "/dpp-events/{id}": {
+      "get": {
+        "operationId": "TraceabilityEventsController_get",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "TraceabilityEvents"
+        ]
+      }
+    },
+    "/organizations/{orgaId}/integration/aas/connections/{connectionId}/items": {
+      "post": {
+        "operationId": "AasConnectionController_upsertItem",
+        "parameters": [
+          {
+            "name": "API_TOKEN",
+            "required": true,
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "connectionId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "AasConnection"
+        ]
+      }
+    },
+    "/organizations/{orgaId}/integration/aas/connections": {
+      "post": {
+        "operationId": "AasConnectionController_createConnection",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "AasConnection"
+        ]
+      },
+      "get": {
+        "operationId": "AasConnectionController_findAllConnectionsOfOrganization",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "AasConnection"
+        ]
+      }
+    },
+    "/organizations/{orgaId}/integration/aas/connections/{connectionId}": {
+      "patch": {
+        "operationId": "AasConnectionController_updateConnection",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "connectionId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "AasConnection"
+        ]
+      },
+      "get": {
+        "operationId": "AasConnectionController_findConnection",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "connectionId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "AasConnection"
+        ]
+      }
+    },
+    "/organizations/{orgaId}/integration/aas/{aasType}/properties": {
+      "get": {
+        "operationId": "AasConnectionController_getProperties",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "aasType",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "AasConnection"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "open-dpp",
+    "description": "API specification for open-dpp",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [
+    {
+      "name": "open-dpp",
+      "description": ""
+    }
+  ],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "CreateProductDataModelDraftDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "UpdateProductDataModelDraftDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "CreateSectionDraftDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "PublishDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "CreateDataFieldDraftDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "UpdateSectionDraftDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "UpdateDataFieldDraftDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "CreateOrganizationDto": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  }
+}
