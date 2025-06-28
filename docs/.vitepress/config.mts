@@ -9,7 +9,7 @@ const sidebar = useSidebar({
 });
 
 const isGitHubPages = process.env.NODE_ENV === 'production' && process.env.GITHUB_ACTIONS;
-const base = isGitHubPages ? '/open-dpp/api-docs' : '/';
+const base = isGitHubPages ? '/api-docs' : '/';
 
 
 // https://vitepress.dev/reference/site-config
