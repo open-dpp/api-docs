@@ -13,6 +13,7 @@ const sidebar = useSidebar({
 export default defineConfig({
   title: 'open-dpp API',
   description: 'API documentation for the open-dpp API',
+    base: '/open-dpp/api-docs',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
