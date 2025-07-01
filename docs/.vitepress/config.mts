@@ -6,6 +6,7 @@ import spec from '../public/api-json.json' with { type: 'json' };
 const sidebar = useSidebar({
   spec,
   // Optionally, you can specify a link prefix for all generated sidebar items. Default is `/operations/`.
+  linkPrefix: '/operations/',
 });
 
 const isGitHubPages = process.env.NODE_ENV === 'production' && process.env.GITHUB_ACTIONS;
@@ -25,40 +26,17 @@ export default defineConfig({
       { text: 'Doc', link: '/api' },
     ],
 
+
     sidebar: [
-      ...sidebar
-          .itemsByPaths({
-            /**
-             * Optionally, you can filter paths by a prefix. Default is an empty string.
-             */
-            startsWith: '',
-
-            /**
-             * Optionally, you can specify if the sidebar items are collapsible. Default is true.
-             */
-            collapsible: true,
-
-            /**
-             * Optionally, you can specify a depth for the sidebar items. Default is 6, which is the maximum VitePress sidebar depth.
-             */
-            depth: 6,
-
-            /**
-             * Optionally, you can specify a link prefix for all generated sidebar items. Default is `/operations/`.
-             */
-            linkPrefix: '/operations/',
-
-            /**
-             * Optionally, you can specify a template for the sidebar items. You can see the default value
-             * in `sidebarItemTemplate` function in the `useSidebar` composable.
-             */
-            //sidebarItemTemplate: ({ method, path, title }): string => `[${method}] ${title || path}`,
-
-            /**
-             * Optionally, you can specify a template for the sidebar groups.
-             */
-            //sidebarGroupTemplate: ({ path, depth }): string => path,
-          }),
+      {
+        text: "Resources",
+        items: sidebar.generateSidebarGroups({
+          linkPrefix: "/operations/"
+        }).map((group) => ({
+          ...group,
+          collapsed: true
+        }))
+      }
     ],
 
     socialLinks: [

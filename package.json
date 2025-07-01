@@ -6,6 +6,6 @@
     "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
-    "vitepress-openapi": "^0.0.3-alpha.86"
+    "vitepress-openapi": "^0.1.0"
   }
 }

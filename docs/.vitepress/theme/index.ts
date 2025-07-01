@@ -4,16 +4,19 @@ import type { Theme } from 'vitepress';
 import { theme, useOpenapi } from 'vitepress-openapi/client';
 import 'vitepress-openapi/dist/style.css';
 
-import spec from '../../public/api-json.json';
+import spec from '../../public/api-json.json' with { type: 'json' };
+
 
 export default {
-  ...DefaultTheme,
+  extends: DefaultTheme,
   async enhanceApp({ app, router, siteData }) {
-    const openapi = useOpenapi({
+    // Set the OpenAPI specification.
+    useOpenapi({
       spec,
-      config: {},
-    });
+       config: {}
+    })
 
-    theme.enhanceApp({ app, openapi });
-  },
-} satisfies Theme;
+    // Use the theme.
+    theme.enhanceApp({ app, router, siteData })
+  }
+} satisfies Theme
