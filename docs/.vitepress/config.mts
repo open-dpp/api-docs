@@ -43,7 +43,7 @@ export default defineConfig({
       '/api': [{
         text: "Resources",
         items: sidebar.generateSidebarGroups({
-          linkPrefix: "/operations/"
+          linkPrefix: "/api/operations/"
         }).map((group) => ({
           ...group,
           collapsed: true
