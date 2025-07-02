@@ -3,6 +3,8 @@ import DefaultTheme from 'vitepress/theme';
 import type { Theme } from 'vitepress';
 import { theme, useOpenapi } from 'vitepress-openapi/client';
 import 'vitepress-openapi/dist/style.css';
+import './custom.css'
+
 
 import spec from '../../public/api-json.json' with { type: 'json' };
 

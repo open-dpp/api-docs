@@ -4,11 +4,16 @@ layout: home
 
 hero:
   name: "open-dpp"
-  text: "API documentation for the open-dpp API"
+  text: "Documentation for the open-dpp plattform"
   tagline: Open Source platform for digital product passports
   actions:
     - theme: alt
-      text: API Dokumentation
+      text: Getting started
+      link: /getting-started/concepts
+    - theme: alt
+      text: REST API Documentation
       link: /api
 ---
+
+
 
