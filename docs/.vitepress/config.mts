@@ -23,7 +23,7 @@ export default defineConfig({
     config: (md) => {
       configureDiagramsPlugin(md, {
         diagramsDir: "docs/public/diagrams", // Optional: custom directory for SVG files
-        publicPath: `${base}/diagrams`, // Optional: custom public path for images
+        publicPath: `${isGitHubPages ? '/api-docs/' : '/'}diagrams`, // Optional: custom public path for images
       });
     },
   },
