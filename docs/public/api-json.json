@@ -1265,16 +1265,6 @@
               "format": "uuid",
               "type": "string"
             }
-          },
-          {
-            "name": "modelId",
-            "required": true,
-            "in": "path",
-            "description": "The id of the model. A item always belongs to a model.",
-            "schema": {
-              "format": "uuid",
-              "type": "string"
-            }
           }
         ],
         "responses": {
@@ -2054,8 +2044,30 @@
       "description": ""
     }
   ],
-  "servers": [],
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Local"
+    },
+    {
+      "url": "https://api.cloud.open-dpp.de",
+      "description": "Production"
+    }
+  ],
   "components": {
+    "securitySchemes": {
+      "api_token": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "api_token",
+        "description": "API key authentication"
+      }
+    },
     "schemas": {}
-  }
+  },
+  "security": [
+    {
+      "api_token": []
+    }
+  ]
 }
