@@ -40,14 +40,17 @@
                       "format": "uuid"
                     },
                     "uniqueProductIdentifiers": {
-                      "type": "object",
-                      "properties": {
-                        "uuid": {
-                          "type": "string",
-                          "format": "uuid"
-                        },
-                        "value": {
-                          "type": "string"
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "uuid": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "value": {
+                            "type": "string"
+                          }
                         }
                       }
                     },
@@ -138,14 +141,17 @@
                         "format": "uuid"
                       },
                       "uniqueProductIdentifiers": {
-                        "type": "object",
-                        "properties": {
-                          "uuid": {
-                            "type": "string",
-                            "format": "uuid"
-                          },
-                          "value": {
-                            "type": "string"
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "uuid": {
+                              "type": "string",
+                              "format": "uuid"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
                           }
                         }
                       },
@@ -247,14 +253,17 @@
                       "format": "uuid"
                     },
                     "uniqueProductIdentifiers": {
-                      "type": "object",
-                      "properties": {
-                        "uuid": {
-                          "type": "string",
-                          "format": "uuid"
-                        },
-                        "value": {
-                          "type": "string"
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "uuid": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "value": {
+                            "type": "string"
+                          }
                         }
                       }
                     },
@@ -394,14 +403,17 @@
                       "format": "uuid"
                     },
                     "uniqueProductIdentifiers": {
-                      "type": "object",
-                      "properties": {
-                        "uuid": {
-                          "type": "string",
-                          "format": "uuid"
-                        },
-                        "value": {
-                          "type": "string"
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "uuid": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "value": {
+                            "type": "string"
+                          }
                         }
                       }
                     },
@@ -539,14 +551,17 @@
                       "format": "uuid"
                     },
                     "uniqueProductIdentifiers": {
-                      "type": "object",
-                      "properties": {
-                        "uuid": {
-                          "type": "string",
-                          "format": "uuid"
-                        },
-                        "value": {
-                          "type": "string"
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "uuid": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "value": {
+                            "type": "string"
+                          }
                         }
                       }
                     },
@@ -592,9 +607,922 @@
             }
           }
         },
-        "summary": "Modify data values to item",
+        "summary": "Modify data values of item",
         "tags": [
           "Items"
+        ]
+      }
+    },
+    "/organizations/{orgaId}/models": {
+      "post": {
+        "description": "Create a model",
+        "operationId": "ModelsController_create",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "description": "The id of the organization you are a member of.",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "productDataModelId": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "uniqueProductIdentifiers": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "uuid": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "value": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "dataValues": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "oneOf": [
+                              {
+                                "type": "string",
+                                "description": "Used for text fields, email fields, and other string-based data types"
+                              },
+                              {
+                                "type": "number",
+                                "description": "Used for numeric fields like quantities, measurements, or calculations"
+                              }
+                            ],
+                            "description": "The value type depends on the data field type."
+                          },
+                          "dataSectionId": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "dataFieldId": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "row": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    },
+                    "owner": {
+                      "type": "string",
+                      "format": "uuid"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "summary": "Create model",
+        "tags": [
+          "Models"
+        ]
+      },
+      "get": {
+        "description": "Find all models which belong to the provided organization.",
+        "operationId": "ModelsController_findAll",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "description": "The id of the organization you are a member of.",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "name": "modelId",
+            "required": true,
+            "in": "path",
+            "description": "The id of the model. A item always belongs to a model.",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "productDataModelId": {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      "uniqueProductIdentifiers": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "uuid": {
+                              "type": "string",
+                              "format": "uuid"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "dataValues": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "value": {
+                              "oneOf": [
+                                {
+                                  "type": "string",
+                                  "description": "Used for text fields, email fields, and other string-based data types"
+                                },
+                                {
+                                  "type": "number",
+                                  "description": "Used for numeric fields like quantities, measurements, or calculations"
+                                }
+                              ],
+                              "description": "The value type depends on the data field type."
+                            },
+                            "dataSectionId": {
+                              "type": "string",
+                              "format": "uuid"
+                            },
+                            "dataFieldId": {
+                              "type": "string",
+                              "format": "uuid"
+                            },
+                            "row": {
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      },
+                      "owner": {
+                        "type": "string",
+                        "format": "uuid"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Find models of organization",
+        "tags": [
+          "Models"
+        ]
+      }
+    },
+    "/organizations/{orgaId}/models/{modelId}": {
+      "get": {
+        "description": "Find model by id.",
+        "operationId": "ModelsController_findOne",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "description": "The id of the organization you are a member of.",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "name": "modelId",
+            "required": true,
+            "in": "path",
+            "description": "The id of the model. A item always belongs to a model.",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "productDataModelId": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "uniqueProductIdentifiers": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "uuid": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "value": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "dataValues": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "oneOf": [
+                              {
+                                "type": "string",
+                                "description": "Used for text fields, email fields, and other string-based data types"
+                              },
+                              {
+                                "type": "number",
+                                "description": "Used for numeric fields like quantities, measurements, or calculations"
+                              }
+                            ],
+                            "description": "The value type depends on the data field type."
+                          },
+                          "dataSectionId": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "dataFieldId": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "row": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    },
+                    "owner": {
+                      "type": "string",
+                      "format": "uuid"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "summary": "Find model by id",
+        "tags": [
+          "Models"
+        ]
+      },
+      "patch": {
+        "description": "Update model's name and description.",
+        "operationId": "ModelsController_update",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "description": "The id of the organization you are a member of.",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "name": "modelId",
+            "required": true,
+            "in": "path",
+            "description": "The id of the model. A item always belongs to a model.",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                },
+                "required": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "productDataModelId": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "uniqueProductIdentifiers": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "uuid": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "value": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "dataValues": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "oneOf": [
+                              {
+                                "type": "string",
+                                "description": "Used for text fields, email fields, and other string-based data types"
+                              },
+                              {
+                                "type": "number",
+                                "description": "Used for numeric fields like quantities, measurements, or calculations"
+                              }
+                            ],
+                            "description": "The value type depends on the data field type."
+                          },
+                          "dataSectionId": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "dataFieldId": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "row": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    },
+                    "owner": {
+                      "type": "string",
+                      "format": "uuid"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "summary": "Update model",
+        "tags": [
+          "Models"
+        ]
+      }
+    },
+    "/organizations/{orgaId}/models/{modelId}/product-data-models/{productDataModelId}": {
+      "post": {
+        "description": "Assign product data model to model.",
+        "operationId": "ModelsController_assignProductDataModelToModel",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "description": "The id of the organization you are a member of.",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "name": "modelId",
+            "required": true,
+            "in": "path",
+            "description": "The id of the model. A item always belongs to a model.",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "name": "productDataModelId",
+            "required": true,
+            "in": "path",
+            "description": "The id of the product data model.",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "productDataModelId": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "uniqueProductIdentifiers": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "uuid": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "value": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "dataValues": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "oneOf": [
+                              {
+                                "type": "string",
+                                "description": "Used for text fields, email fields, and other string-based data types"
+                              },
+                              {
+                                "type": "number",
+                                "description": "Used for numeric fields like quantities, measurements, or calculations"
+                              }
+                            ],
+                            "description": "The value type depends on the data field type."
+                          },
+                          "dataSectionId": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "dataFieldId": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "row": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    },
+                    "owner": {
+                      "type": "string",
+                      "format": "uuid"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "summary": "Assign product data model",
+        "tags": [
+          "Models"
+        ]
+      }
+    },
+    "/organizations/{orgaId}/models/{modelId}/data-values": {
+      "patch": {
+        "description": "Modify data values of model.",
+        "operationId": "ModelsController_updateDataValues",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "description": "The id of the organization you are a member of.",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "name": "modelId",
+            "required": true,
+            "in": "path",
+            "description": "The id of the model. A item always belongs to a model.",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "oneOf": [
+                        {
+                          "type": "string",
+                          "description": "Used for text fields, email fields, and other string-based data types"
+                        },
+                        {
+                          "type": "number",
+                          "description": "Used for numeric fields like quantities, measurements, or calculations"
+                        }
+                      ],
+                      "description": "The value type depends on the data field type."
+                    },
+                    "dataSectionId": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "dataFieldId": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "row": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "productDataModelId": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "uniqueProductIdentifiers": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "uuid": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "value": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "dataValues": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "oneOf": [
+                              {
+                                "type": "string",
+                                "description": "Used for text fields, email fields, and other string-based data types"
+                              },
+                              {
+                                "type": "number",
+                                "description": "Used for numeric fields like quantities, measurements, or calculations"
+                              }
+                            ],
+                            "description": "The value type depends on the data field type."
+                          },
+                          "dataSectionId": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "dataFieldId": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "row": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    },
+                    "owner": {
+                      "type": "string",
+                      "format": "uuid"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "summary": "Modify data values of model",
+        "tags": [
+          "Models"
+        ]
+      },
+      "post": {
+        "description": "Add data values to model. This method is used in the context of a repeater where a user can add new data rows resulting in data values.",
+        "operationId": "ModelsController_addDataValues",
+        "parameters": [
+          {
+            "name": "orgaId",
+            "required": true,
+            "in": "path",
+            "description": "The id of the organization you are a member of.",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "name": "modelId",
+            "required": true,
+            "in": "path",
+            "description": "The id of the model. A item always belongs to a model.",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "oneOf": [
+                        {
+                          "type": "string",
+                          "description": "Used for text fields, email fields, and other string-based data types"
+                        },
+                        {
+                          "type": "number",
+                          "description": "Used for numeric fields like quantities, measurements, or calculations"
+                        }
+                      ],
+                      "description": "The value type depends on the data field type."
+                    },
+                    "dataSectionId": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "dataFieldId": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "row": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "productDataModelId": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "uniqueProductIdentifiers": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "uuid": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "value": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "dataValues": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "oneOf": [
+                              {
+                                "type": "string",
+                                "description": "Used for text fields, email fields, and other string-based data types"
+                              },
+                              {
+                                "type": "number",
+                                "description": "Used for numeric fields like quantities, measurements, or calculations"
+                              }
+                            ],
+                            "description": "The value type depends on the data field type."
+                          },
+                          "dataSectionId": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "dataFieldId": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "row": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    },
+                    "owner": {
+                      "type": "string",
+                      "format": "uuid"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "summary": "Add data values to model",
+        "tags": [
+          "Models"
         ]
       }
     }
