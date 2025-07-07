@@ -49,10 +49,16 @@ export default defineConfig({
           collapsed: true
         }))
       }],
-      '/getting-started': [{
-        text: "Concepts",
-        link: '/getting-started/concepts'
-      }]
+      '/getting-started': [
+        {
+          text: "Concepts",
+          link: '/getting-started/concepts'
+        },
+        {
+          text: "REST API",
+          link: '/getting-started/rest-api'
+        }
+      ]
     },
 
     socialLinks: [
