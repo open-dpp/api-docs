@@ -5,7 +5,7 @@ title: Concepts
 ---
 ```mermaid
 flowchart LR
-    PM@{ shape: rect, label: "product data model" }
+    PM@{ shape: rect, label: "template" }
     MO@{ shape: rect, label: "model passport" }
     IT@{ shape: rect, label: "item passport" }
     classDef default fill:#A2C7AB,stroke:#A2C7AB
@@ -13,9 +13,9 @@ flowchart LR
     PM == "assigned to" ==> MO
     MO == "has multiple" ==> IT
 ```
-At the beginning we have different **product data models** for batteries, laptops, textiles and so on.
+At the beginning we have different **templates** for batteries, laptops, textiles and so on.
 They describe the required structure and data fields.
-Let's take the following simplified **product data model** of a laptop:
+Let's take the following simplified **template** of a laptop:
 
 * Technical Specs (Section)
     * CPU (Numeric Field, model level)
@@ -24,9 +24,9 @@ Let's take the following simplified **product data model** of a laptop:
     * Carbon Footprint (Numeric Field, item level)
     * Carbon Footprint calculation method (Text Field, model level)
 
-A **product data model** is built up of sections where each **section** consists of a list of **data fields**.
+A **template** is built up of sections where each **section** consists of a list of **data fields**.
 
-The product data model describes the structure and data fields of a passport. However, the data values of all the
+The template describes the structure and data fields of a passport. However, the data values of all the
 data fields are stored either in a **model** or **item** passport. But what is the difference between a model and an item?
 Actually, these are different levels of granularity. Let us take the laptop example again.
 The model can be something like an *Apple MacBook Pro 2019 | 16*. Now let's say Bob has such a laptop and Alice too.
@@ -37,8 +37,8 @@ the memory or CPU in common. All the values which are the same over all items ar
 in different factories, such that the transportation causes other carbon footprint values. Therefore, the carbon footprint values
 are stored in the individual item passports.
 
-Let us bring everything together. The **product data model** describes the structure and data fields. It also defines the
-granularity level of each data field. Having the **product data model** we can create a **model passport** from it.
+Let us bring everything together. The **template** describes the structure and data fields. It also defines the
+granularity level of each data field. Having the **template** we can create a **model passport** from it.
 A **model passport** defines the values of the data fields which are the same over all items. At the end, having a model passport
 we can create **item passports** from it. A **item passport** references all the data values on the model level. Additionally,
 it defines the values of the data fields which can be different to other items.
